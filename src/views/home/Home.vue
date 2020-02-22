@@ -38,6 +38,8 @@
     import GoodsList from "components/content/goods/GoodsList";
     import Scroll from "components/common/scroll/Scroll";
     import BackTop from "components/content/BackTop";
+    // import ChildNavBar from "../detail/childrencomp/ChildNavBar";
+
 
     export default {
         name: "Home",
@@ -54,8 +56,16 @@
                 currentType: 'pop',
                 isShow: false,
                 tabOffset: 0,
-                isFixed: false
+                isFixed: false,
+                saveY: 0
             }
+        },
+        activated() {
+            this.$refs.scroll.refresh();
+            this.$refs.scroll.scroll.scrollTo(0, this.saveY);
+        },
+        deactivated() {
+            this.saveY = this.$refs.scroll.scroll.y;
         },
         computed: {
             changeList() {

@@ -5,6 +5,7 @@ const ShopCart = () => import("views/cart/ShopCart");
 const CateGory = () => import("views/category/CateGory");
 const Home = () => import("views/home/Home");
 const ProFile = () => import("views/profile/ProFile");
+const Detail = () => import("views/detail/Detail")
 Vue.use(VueRouter)
 
 const routes = [
@@ -28,6 +29,10 @@ const routes = [
     {
         path: '/personal',
         component: ProFile
+    },
+    {
+        path:'/detail/:iid',
+        component:Detail
     }
 ]
 

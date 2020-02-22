@@ -1,6 +1,7 @@
 <template>
     <div class="good-item">
-        <img :src="goodItem.show.img" @load="isLoad" alt="">
+        <img :src="goodItem.show.img" @load="isLoad" alt=""
+        @click="itemClick">
         <div class="goods-info">
             <p class="title">{{goodItem.title}}</p>
             <span class="price">单价：{{goodItem.price}}元</span>
@@ -24,6 +25,9 @@
         methods:{
             isLoad(){
                 this.$bus.$emit("isLoad");
+            },
+            itemClick(){
+                this.$router.push('/detail/'+this.goodItem.iid);
             }
         }
     }
